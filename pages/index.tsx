@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import homeStyles from '../styles/Home.module.css'
 import { getSortedPostData } from '../lib/post'
+import Link from 'next/link'
 
 
 const Home = ({ allPostsData }:{
@@ -31,7 +32,10 @@ const Home = ({ allPostsData }:{
         <ul className={homeStyles.list}>
           {allPostsData.map(({id, title, date}) =>
           <li className='{homeStyles.listItem}' key ={id}>
+            <Link href={`/posts/${id}`}>
             <a> {title} </a> <br/>
+            </Link>
+            <br />
             <small className='{homeStyles.lightText}'>
               {date}
             </small>
